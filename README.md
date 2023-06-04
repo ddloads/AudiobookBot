@@ -15,13 +15,13 @@ Follow these steps to set up your own instance of the Audiobook Bot:
 
    Use git to clone this repository to your local machine:
    
-   git clone https://github.com/YourUsername/AudiobookBot.git
+   `git clone https://github.com/YourUsername/AudiobookBot.git`
 
 2. **Install dependencies**
 
 Navigate to the project folder and install the necessary npm packages:
 
-npm install
+`npm install`
 
 
 3. **Set up a Discord bot**
@@ -32,16 +32,16 @@ You'll need to create a new bot on the Discord developer portal and get your bot
 
 Create a `.env` file in the root of the project and add your bot token, guild id, and client id like so:
 
-`DISCORD_BOT_TOKEN=YourBotTokenHere
-GUILD_ID=YourGuildId
-CLIENT_ID=YourClientId
-`
+`DISCORD_BOT_TOKEN=YourBotTokenHere`
+`GUILD_ID=YourGuildId`
+`CLIENT_ID=YourClientId`
 
 
 5. **Start the bot**
 
 Run the bot using node:
-node src/bot.js
+
+`node src/bot.js`
 
 
 Your bot should now be running! Invite it to your server using the link provided by Discord when you created your bot.
