@@ -36,8 +36,15 @@ Create a `.env` file in the root of the project and add your bot token, guild id
 `GUILD_ID=YourGuildId`
 `CLIENT_ID=YourClientId`
 
+5. **Create a `config.json` file:** In the `src` directory, create a `config.json` file. This file will be used to specify the directory for your audio files, like so:
 
-5. **Start the bot**
+ ```json
+    {
+        "audioDirectory": "path_to_your_audio_files"
+    }
+    ```
+
+6. **Start the bot**
 
 Run the bot using node:
 
@@ -48,11 +55,29 @@ Your bot should now be running! Invite it to your server using the link provided
 
 ## Usage
 
-Once the bot is in your server, you can use the following commands:
+After deploying your bot and inviting it to your server, you can use the following commands:
 
-- `/play <filename>`: Plays the specified audio file in the current voice channel. If a file with the specified name doesn't exist, the bot will respond with an error message.
+- `/play {filename}`: Plays the specified audio file. If "queue" is specified as the filename, it will play the queued up files. The audio file should be in the audio files directory specified in the `config.json` file under "audioDirectory". Currently, the bot supports `.mp3`, `.wav`, and `.m4b` files.
+  
+- `/addqueue {filename}`: Adds the specified audio file to the queue.
+  
+  
+- `/addqueue {filename}`: Adds the specified audio file to the queue.
+  
+- `/rmqueue {filename}`: Removes the specified audio file from the queue.
+  
+- `/queue`: Shows the current queue of audio files to be played.
+  
+- `/prev`: Plays the previous audio file in the queue.
+  
+- `/next`: Plays the next audio file in the queue.
+  
+- `/stop`: Stops playing the current audio file.
+  
+- `/volume {value}`: Adjusts the volume of the audio playback. The value should be a number between 0 and 1.
 
-- `/play queue`: Plays the current queue of audio files in the current voice channel.
+Note that commands should be run in a text channel in your Discord server. Also, for `/play`, `/next`, `/prev`, and `/stop`, the user running the command should be in a voice channel.
+
 
 ## Contributing
 
