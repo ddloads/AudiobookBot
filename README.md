@@ -38,11 +38,11 @@ Create a `.env` file in the root of the project and add your bot token, guild id
 
 5. **Create a `config.json` file:** In the `src` directory, create a `config.json` file. This file will be used to specify the directory for your audio files, like so:
 
- ```json
+```json
     {
         "audioDirectory": "path_to_your_audio_files"
     }
-    ```
+```
 
 6. **Start the bot**
 
