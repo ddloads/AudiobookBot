@@ -13,6 +13,7 @@ const player = require("../utility/audioplayer");
 const { joinVoiceChannelAndSubscribe } = require("../utility/voicemanager");
 const queue = require("../utility/queue-utility");
 const connectionManager = require("../utility/connection-manager");
+const volumeTransformer = require("../utility/volume-transformer");
 
 const getFileExtension = (filename) => {
   const extensions = [".mp3", ".wav", ".m4b"];
@@ -45,6 +46,15 @@ const handleFilePlay = async (interaction, audioFile, channel) => {
   }
 
   queue.addToQueue(audioFile);
+  //Create a volume transformer
+  const transformer = volumeTransformer.createVolumeTransformer();
+  //Read the audio file
+  const audio = fs.createReadStream(audioFile);
+  //Create and audio resource using the volume transformer
+  const resource = createAudioResource(audio.pipe(transformer),{inputType: StreamType.OggOpus});
+  //Play the audio resource
+  player.play(resource);
+  
   queue.upNext(interaction, player, channel);
   await interaction.reply(`Now playing ${path.basename(audioFile)}.`);
 };

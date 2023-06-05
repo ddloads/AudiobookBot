@@ -25,7 +25,7 @@ for (const file of commandFiles) {
     client.commands.set(command.data.name, command);
 }
 
-client.once('ready',(c) => {
+ client.once('ready',(c) => {
     console.log(`\u2705 ${c.user.username} is online.`);
 });
 

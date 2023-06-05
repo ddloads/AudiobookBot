@@ -2,12 +2,21 @@ const prism = require('prism-media');
 const config = require('../config.json');
 
 // Get the initial volume from the config
-const initialVolume = config.initialVolume;
+let volume = config.initialVolume;
 
-// Create a volume transformer
-const volumeTransformer = new prism.VolumeTransformer({ type: 's16le'});
+// Create a function that generates a volume transformer
+const createVolumeTransformer = () => {
+  const volumeTransformer = new prism.VolumeTransformer({ type: 's16le'});
+  volumeTransformer.setVolume(volume);
+  return volumeTransformer;
+};
 
-// Set initial volume from the config
-volumeTransformer.setVolume(initialVolume);
+// Create a function that sets the volume level
+const setVolume = (newVolume) => {
+  volume = newVolume;
+};
 
-module.exports = volumeTransformer;
+module.exports = {
+  createVolumeTransformer,
+  setVolume
+};
