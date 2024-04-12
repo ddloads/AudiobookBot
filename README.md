@@ -33,7 +33,7 @@ You'll need to create a new bot on the Discord developer portal and get your bot
 Create a `.env` file in the root of the project and add your bot token, guild id, and client id like so:
 
 ```env
-    DISCORD_BOT_TOKEN=YourBotTokenHere
+    DISCORD_TOKEN=YourBotTokenHere
     GUILD_ID=YourGuildId
     CLIENT_ID=YourClientId
 ```
